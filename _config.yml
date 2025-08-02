@@ -24,6 +24,11 @@ logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x8
 masthead_title: # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
+search                   : true
+search_full_content      : true # true, false (default)
+search_provider          : lunr # lunr (default), algolia, google
+lunr:
+  search_within_pages    : true # true, false (default)
 
 # Site Author
 author:
@@ -113,9 +118,13 @@ kramdown:
 
 # Collections
 collections:
-  dprojects:
+  projects:
     output: true
     permalink: /projects/:name/
+  publications:
+    output: true
+  posts:
+    output: true
 
 # Defaults
 defaults:
@@ -132,18 +141,22 @@ defaults:
       related: true
   # _pages
   - scope:
-      path: '_pages'
+      path: 'pages'
       type: pages
     values:
       layout: single
       author_profile: true
   # _projects
   - scope:
-      path: '_projects'
-      type: pages
+      path: ""
+      type: "projects"
     values:
       layout: single
       author_profile: true
+      read_time: false
+      share: true
+      image:
+        feature: /assets/images/default.jpg
 
 # Sass/SCSS
 sass:
