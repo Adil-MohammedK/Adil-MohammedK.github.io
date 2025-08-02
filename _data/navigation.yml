@@ -1,11 +1,16 @@
+# Navigation
 main:
+  - title: "Home"
+    url: /
+  - title: "About"
+    url: /about/
   - title: "Posts"
     url: /posts/
   - title: "Projects"
     url: /projects/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "About"
-    url: /about/
+  - title: "Publications"
+    url: /publications/
+  - title: "Travel"
+    url: /travel/
+  - title: "CV"
+    url: /cv/

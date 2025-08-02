@@ -1,0 +1,36 @@
+intro:
+  - title: "About Me"
+    excerpt: "I'm currently pursuing a Dual Degree (BTech-MTech) at IIT Madras. My work blends robotics, control systems, and intelligent machines."
+    image_path: /assets/images/avatar.jpg
+    url: /about/
+    btn_label: "More About Me"
+    btn_class: "btn--primary"
+
+interests:
+  - title: "Research"
+    excerpt: "I'm fascinated by fuzzy logic, soft robotics, and intelligent control systems. Check out my recent publications."
+    url: /publications/
+    image_path: /assets/images/research.jpg
+    alt: "Research"
+  - title: "Projects"
+    excerpt: "From autonomous bots to soft actuators — see what I've been building."
+    url: /projects/
+    image_path: /assets/images/project-thumb.jpg
+    alt: "Projects"
+  - title: "Travel"
+    excerpt: "I love documenting the places I visit through photos and short films."
+    url: /travel/
+    image_path: /assets/images/travel.jpg
+    alt: "Travel"
+
+quicklinks:
+  - title: "Download CV"
+    excerpt: "Get a copy of my latest résumé in PDF format."
+    url: /cv/
+    image_path: /assets/images/cv.jpg
+    alt: "CV"
+  - title: "GitHub Repos"
+    excerpt: "Explore my open-source projects and latest commits."
+    url: /github/
+    image_path: /assets/images/github.jpg
+    alt: "GitHub"
