@@ -49,11 +49,12 @@ The figure below shows the complete autonomous vehicle architecture, highlightin
 
 <!-- ![Overall System Architecture](/assets/diagrams/igvc2023/sys-arch.svg) -->
 
-<figure class="align-center">
+<!-- <figure class="align-center">
   <img src="/assets/diagrams/igvc2023/sys-arch.svg"
        alt="Overall System Architecture">
   <figcaption>Figure 1. High-level system architecture of Vikram.</figcaption>
-</figure>
+</figure> -->
+<img src="{{ site.url }}{{ site.baseurl }}/assets/diagrams/igvc2023/sys-arch.svg" alt="Overall System Architecture" class="full">
 
 ---
 
