@@ -1,0 +1,37 @@
+direction: right
+
+Battery -> Fuse
+
+Fuse -> ReversePolarityProtection
+
+ReversePolarityProtection -> MainPCB
+
+MainPCB: {
+    label: "Main PCB"
+
+    MCU: "TI Tiva MCU"
+
+    CAN
+
+    Relay
+
+    Encoder
+
+    Power
+
+    LEDs
+
+    WirelessEStop
+}
+
+MainPCB -> Roboteq
+
+MainPCB -> IntelNUC: "USB"
+
+MainPCB -> Encoders
+
+MainPCB -> EmergencyStop
+
+Roboteq -> Motors
+
+MainPCB.style.fill: "#D6EAF8"

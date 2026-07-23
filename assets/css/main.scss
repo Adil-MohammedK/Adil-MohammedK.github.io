@@ -7,3 +7,29 @@ search: false
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+
+/* Architecture diagrams */
+.page__content img[src$=".svg"] {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Figure captions */
+figure {
+  margin: 2rem auto;
+}
+
+figcaption {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+}

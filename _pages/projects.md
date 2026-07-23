@@ -10,6 +10,13 @@ classes: wide
 
 ### 📊 GitHub Stats
 
-![Adil's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Adil-MohammedK&show_icons=true&hide_title=true&count_private=true)
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; align-items: start;">
+  <a href="https://github-stats-extended.vercel.app/api?username=Adil-MohammedK&custom_title=My%20GitHub%20Stats&show_icons=true&include_all_commits=true&theme=solarized-light">
+    <img alt="GitHub Stats" src="https://github-stats-extended.vercel.app/api?username=Adil-MohammedK&custom_title=My%20GitHub%20Stats&show_icons=true&include_all_commits=true&theme=solarized-light" />
+  </a>
+  <a href="https://github-stats-extended.vercel.app/api/top-langs?username=Adil-MohammedK&layout=compact&langs_count=5&theme=solarized-light">
+    <img alt="Top Languages" src="https://github-stats-extended.vercel.app/api/top-langs?username=Adil-MohammedK&layout=compact&langs_count=5&theme=solarized-light" />
+  </a>
+</div>
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Adil-MohammedK&layout=compact)
+---

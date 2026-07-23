@@ -1,0 +1,52 @@
+direction: down
+
+Sensors: {
+  shape: rectangle
+
+  ZED: "Stereo Camera"
+  GPS
+  IMU
+  Encoder
+}
+
+Perception: {
+  Lane Detection
+  Obstacle Detection
+}
+
+Localization: {
+  EKF
+}
+
+Planning: {
+  "Global Planner\n(A*)"
+  "Local Planner\n(TEB)"
+}
+
+Controller: {
+  "SPARC Controller"
+}
+
+Hardware: {
+  "Main PCB"
+  "Roboteq Driver"
+  Motors
+}
+
+Sensors -> Perception
+
+Sensors.GPS -> Localization
+Sensors.IMU -> Localization
+Sensors.Encoder -> Localization
+
+Perception -> Planning
+Localization -> Planning
+
+Planning -> Controller
+
+Controller -> Hardware
+
+Hardware -> Motors
+
+PCB.style.fill: "#D6EAF8"
+Controller.style.fill: "#D6EAF8"

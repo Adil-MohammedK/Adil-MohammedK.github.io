@@ -1,0 +1,27 @@
+direction: right
+
+Trajectory: "Trajectory"
+
+Trajectory -> Planner
+
+Planner: "TEB Planner"
+
+Planner -> Velocity
+
+Velocity: "Velocity Setpoint"
+
+Velocity -> SPARC
+
+SPARC: {
+    label: "Adaptive Controller\nSPARC"
+}
+
+SPARC -> Roboteq: "Serial Motor Commands"
+
+Roboteq -> Motors
+
+Motors -> Encoder
+
+Encoder -> SPARC: "Feedback"
+
+SPARC.style.fill: "#D6EAF8"

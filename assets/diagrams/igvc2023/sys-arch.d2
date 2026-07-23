@@ -1,0 +1,57 @@
+vars: {
+  di: https://raw.githubusercontent.com/homarr-labs/dashboard-icons/main/svg
+}
+
+direction: right
+
+Vehicle: {
+  label: "Vikram\nAutonomous Ground Vehicle"
+  shape: rectangle
+
+  Sensors: {
+    shape: rectangle
+
+    ZED: "ZED 2i\nStereo Camera"
+    GPS: "GPS"
+    IMU: "IMU"
+    Encoder: "Wheel Encoders"
+  }
+
+  NUC: {
+    label: "Intel NUC\nUbuntu + ROS"
+
+    Perception
+    Localization
+    Planning
+    Control
+  }
+
+  PCB: {
+    label: "Main PCB\n(Designed by Me)"
+
+    Tiva: "TI Tiva MCU"
+    CAN
+    Relay
+    Power
+    EStop: "Emergency Stop"
+    EncoderIF: "Encoder Interface"
+  }
+
+  DriverBoard: {
+    label: "Roboteq\nMotor Controller"
+  }
+
+  Motors: {
+    label: "Differential Drive"
+  }
+PCB.style.fill: "#D6EAF8"
+NUC.Control.style.fill: "#D6EAF8"
+}
+
+Vehicle.Sensors -> Vehicle.NUC
+
+Vehicle.NUC -> Vehicle.PCB: USB
+
+Vehicle.PCB -> Vehicle.DriverBoard: USB
+
+Vehicle.DriverBoard -> Vehicle.Motors

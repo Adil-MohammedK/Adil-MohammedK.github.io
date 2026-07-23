@@ -1,15 +1,20 @@
 ---
-title: "Team Abhiyaan – Autonomous Ground Vehicle (IGVC 2023)"
+title: "Team Abhiyaan and Autonomous Ground Vehicle (IGVC 2023)"
 layout: single
 collection: projects
 date: 2025-07-31
-excerpt: "Developing the software stack for an autonomous ground vehicle at IIT Madras for the Intelligent Ground Vehicle Competition."
+excerpt: "Developing the electronics and ROS stack for an autonomous ground vehicle at IIT Madras for the Intelligent Ground Vehicle Competition."
 author_profile: true
 header:
-  teaser: /assets/images/bolt.jpg
+  teaser: /assets/images/projects/igvc2023/vikram.jpeg
 toc: true
 toc_sticky: true
 ---
+
+<!-- <img src="/assets/images/projects/igvc2023/vikram.jpeg"
+     alt="Vikram Autonomous Ground Vehicle"
+     style="width:100%; border-radius:10px;"> -->
+![Vikram Autonomous Ground Vehicle](/assets/images/projects/igvc2023/vikram.jpeg){: .align-center}
 
 # Team Abhiyaan
 
@@ -32,16 +37,29 @@ The complete system consisted of:
 * GPS and IMU based localization
 * Autonomous path planning
 * Differential drive control
-* Custom electronics and motor control
+* Custom electronics, motor control and power distribution
 * Independent suspension and rugged mechanical platform
+* Safety-critical hardware and software
+
+Building such a vehicle required close collaboration between the Electronics, Software, and Mechanical teams throughout the development cycle.
 
 The software stack was designed to be modular, allowing perception, planning and control to evolve independently while maintaining reliable system integration.
+
+The figure below shows the complete autonomous vehicle architecture, highlighting the interaction between the perception, planning, electronics, and control subsystems.
+
+<!-- ![Overall System Architecture](/assets/diagrams/igvc2023/sys-arch.svg) -->
+
+<figure class="align-center">
+  <img src="/assets/diagrams/igvc2023/sys-arch.svg"
+       alt="Overall System Architecture">
+  <figcaption>Figure 1. High-level system architecture of Vikram.</figcaption>
+</figure>
 
 ---
 
 # My Contributions
 
-I was a member of the **Electronics Team**, while also collaborating extensively with the **Software Team** to integrate the autonomous driving stack.
+Although I officially belonged to the **Electronics Team**, my work extended well beyond hardware design. I worked closely with the Software Team to integrate the complete autonomous driving stack and bridge the gap between embedded electronics and ROS.
 
 My responsibilities included:
 
@@ -55,6 +73,7 @@ My responsibilities included:
 Working across electronics and software allowed me to understand the complete autonomous system—from sensing and low-level hardware interfaces to high-level vehicle control.
 
 ---
+
 # Electronics Architecture
 
 ## Main PCB Design
@@ -77,6 +96,18 @@ The PCB was designed in **Altium Designer**, following PCB layout guidelines to 
 
 The modular architecture simplified maintenance, improved reliability, and allowed future hardware expansion.
 
+The following diagram illustrates the electronics architecture designed for the autonomous vehicle.
+
+> **Suggested Image:** Main PCB from the design report.
+
+<!-- ![Electronics Architecture](/assets/diagrams/igvc2023/elec-arch.svg) -->
+<figure class="align-center">
+  <img src="/assets/diagrams/igvc2023/elec-arch.svg"
+       alt="Electronics Architecture">
+  <figcaption>Figure 2. Electronics architecture of Vikram.</figcaption>
+</figure>
+
+
 ## Adaptive Vehicle Control using SPARC
 
 Unlike traditional PID controllers, our vehicle used **SPARC (Self-Evolving Parameter-Free Rule-Based Adaptive Controller)** for velocity control.
@@ -94,6 +125,14 @@ Advantages included:
 The ROS control node generated wheel velocity setpoints, which were executed by the SPARC controller before being transmitted to the Roboteq motor controller.
 
 Simulation results demonstrated that while SPARC performed similarly to PID in linear systems, it significantly outperformed PID under nonlinear conditions encountered during real-world vehicle operation.
+
+<figure class="align-center">
+  <img src="/assets/diagrams/igvc2023/control-arch.svg"
+       alt="Control Architecture">
+  <figcaption>Figure 3. Control architecture of Vikram.</figcaption>
+</figure>
+
+---
 
 # Software Architecture
 
@@ -149,78 +188,45 @@ The planner continuously generated collision-free trajectories while respecting 
 
 The complete pipeline consisted of:
 
-```
-                    +----------------+
-                    | ZED2i Camera   |
-                    +----------------+
-                            |
-                    +----------------+
-                    |  Perception    |
-                    | Lane Detection |
-                    | Obstacles      |
-                    +----------------+
-                            |
-                            v
-                  +--------------------+
-                  | Layered Costmaps   |
-                  +--------------------+
-                            |
-                            v
-                  +--------------------+
-                  | Global Planner     |
-                  |       A*           |
-                  +--------------------+
-                            |
-                            v
-                  +--------------------+
-                  | Local Planner      |
-                  |    TEB Planner     |
-                  +--------------------+
-                            |
-                            v
-                  +--------------------+
-                  | Velocity Controller|
-                  |      SPARC         |
-                  +--------------------+
-                            |
-                            v
-                 Intel NUC (ROS)
-                            |
-                            |
-                     Serial / CAN
-                            |
-                            v
-                Tiva Microcontroller
-                            |
-                            |
-                     Roboteq Driver
-                            |
-                            v
-                    Differential Drive
-```
+<!-- ![Autonomous Navigation Pipeline](/assets/diagrams/igvc2023/ros-stack.svg) -->
+<figure class="align-center">
+  <img src="/assets/diagrams/igvc2023/ros-stack.svg"
+       alt="Autonomous Navigation Pipeline">
+  <figcaption>Figure 4. Autonomous navigation pipeline of Vikram.</figcaption>
+</figure>
 
 This modular design allowed every subsystem to be independently tested and improved throughout the competition season.
 
 ---
 
-# Reliability and Safety
+# Safety and Reliability
 
-Autonomous systems require robust fault handling.
+Safety was a key design consideration throughout the project.
 
-To improve reliability, the software stack included:
+The vehicle incorporated multiple safety mechanisms including:
 
-- ROS heartbeat monitoring
+## Hardware
+
+- Emergency Stop
+- Wireless Emergency Stop
+- Reverse polarity protection
+- Battery Monitoring System
+- Safety fuses
+- Electrical isolation
+
+## Software
+
+- ROS Heartbeat monitoring
 - Sensor timeout detection
-- Process health monitoring
-- Wireless emergency stop
-- Fail-safe shutdown logic
+- Node health monitoring
+- Safe shutdown procedures
 - Redundant localization
 
-The heartbeat framework continuously monitored sensors and ROS nodes, automatically issuing warnings or safely stopping the vehicle when failures were detected.
+These mechanisms ensured that the vehicle could safely detect failures and transition to a safe state whenever required.
 
 ---
 
-# Cybersecurity
+# Cybersecurity  
 
 For the IGVC Cyber Challenge, our team designed a secure architecture based on the **NIST Risk Management Framework (RMF)**.
 
@@ -240,7 +246,7 @@ The project highlighted the importance of integrating cybersecurity into autonom
 
 ---
 
-# Engineering Highlights
+# Engineering Highlights  
 
 Some notable innovations introduced in Vikram included:
 
@@ -266,13 +272,15 @@ Beyond software development, it taught me how large engineering projects are dev
 
 I gained practical experience in:
 
-- ROS
+- ROS and communication protocols
+- Embedded systems
+- Control theory and adaptive control
+- PCB design
 - Linux development
 - Autonomous robotics
 - Sensor fusion
 - Computer vision
 - System integration
-- Embedded systems
 - Git-based collaboration
 - Debugging distributed robotic systems
 - Cross-functional engineering teamwork
